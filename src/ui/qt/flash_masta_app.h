@@ -2,6 +2,7 @@
 #define __FLASH_MASTA_APP_H__
 
 #include <QApplication>
+#include <QMetaType>
 
 class device_manager;
 class MainWindow;

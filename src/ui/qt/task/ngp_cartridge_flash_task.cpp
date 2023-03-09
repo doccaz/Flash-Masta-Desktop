@@ -1,6 +1,7 @@
 #include "ngp_cartridge_flash_task.h"
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QString>
 #include <fstream>
 #include "cartridge/cartridge.h"
 #include "../flash_masta_app.h"
@@ -73,7 +74,7 @@ void NgpCartridgeFlashTask::run_task()
   QString filename = QFileDialog::getOpenFileName(
     (QWidget*) this->parent(), tr("Open File"), QString(),
     tr("Neo Geo Pocket (*.ngp);;All files (*)"));
-  if (filename == QString::null)
+  if (filename.isNull())
   {
     // Quietly fail
     return;

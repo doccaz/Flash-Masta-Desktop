@@ -5,6 +5,7 @@
 #include <QTimer>
 
 #include "cartridge/cartridge.h"
+#include <map>
 
 namespace Ui {
 class MainWindow;

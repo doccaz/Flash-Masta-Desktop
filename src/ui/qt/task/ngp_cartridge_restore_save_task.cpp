@@ -23,7 +23,7 @@ void NgpCartridgeRestoreSaveTask::run_task()
   QString filename = QFileDialog::getOpenFileName(
     (QWidget*) this->parent(), tr("Open File"), QString(),
     tr("Neo Geo Pocket (*.ngf);;All files (*)"));
-  if (filename == QString::null)
+  if (filename.isNull())
   {
     // Quietly fail
     return;

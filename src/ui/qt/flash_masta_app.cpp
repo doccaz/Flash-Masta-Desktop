@@ -30,6 +30,7 @@ FlashMastaApp::FlashMastaApp(int argc, char **argv, int flags)
   m_main_window = new MainWindow();
   
   qRegisterMetaType<std::string>("std::string");
+  qRegisterMetaType<cartridge*>("cartridge::cartridge");
   
   connect(m_main_window, SIGNAL(destroyed(QObject*)), this, SLOT(mainWindowDestroyed(QObject*)));
   m_main_window->show();

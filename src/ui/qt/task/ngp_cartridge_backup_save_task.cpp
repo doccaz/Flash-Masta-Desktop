@@ -35,7 +35,7 @@ void NgpCartridgeBackupSaveTask::run_task()
   QString filename = QFileDialog::getSaveFileName(
     (QWidget*) this->parent(), tr("Save File"), "save_backup.ngf",
     tr("Neo Geo File (*.ngf);;All files (*)"));
-  if (filename == QString::null)
+  if (filename.isNull())
   {
     // Quietly fail
     return;

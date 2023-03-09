@@ -23,7 +23,7 @@ void WsCartridgeRestoreSaveTask::run_task()
   QString filename = QFileDialog::getOpenFileName(
     (QWidget*) this->parent(), tr("Open File"), QString(),
     tr("WonderSwan File (*.wsf);;All Files (*)"));
-  if (filename == QString::null)
+  if (filename.isNull())
   {
     // Quietly fail
     return;
