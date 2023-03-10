@@ -6,13 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>650</width>
-    <height>500</height>
+    <width>750</width>
+    <height>520</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>1</horstretch>
+    <verstretch>1</verstretch>
+   </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
-    <width>557</width>
+    <width>550</width>
     <height>350</height>
    </size>
   </property>
@@ -91,8 +97,8 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>400</width>
-       <height>454</height>
+       <width>482</width>
+       <height>464</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -130,8 +136,8 @@ to your computer</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>650</width>
-     <height>22</height>
+     <width>750</width>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuCartridge">
