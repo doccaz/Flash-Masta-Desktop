@@ -447,28 +447,24 @@ void ngp_cartridge::restore_cartridge_game_data(std::istream& fin, int slot, tas
   }
   catch (std::exception& ex)
   {
-    (void) ex;
     // Error occured! Clean up and pass error on to caller
     try {
       // Spinlock while the chip finishes erasing (if it was erasing)
       while (m_chips[curr_chip]->is_erasing());
-    } catch (exception ex2) {
-      (void) ex2;
+    } catch (std::exception& ex2) {
       // Well... this is awkward
     }
     
     try {
       // Attempt to reset the chip
       m_chips[curr_chip]->reset();
-    } catch (exception ex2) {
-      (void) ex2;
+    } catch (std::exception& ex2) {
       // Well... this is awkward
     }
     
     try {
       m_linkmasta->close();
-    } catch (exception ex2) {
-      (void) ex2;
+    } catch (std::exception& ex2) {
       // Well... this is awkward
     }
     
@@ -671,20 +667,20 @@ bool ngp_cartridge::compare_cartridge_game_data(std::istream& fin, int slot, tas
     try {
       // Spinlock while the chip finishes erasing (if it was erasing)
       while (m_chips[curr_chip]->is_erasing());
-    } catch (exception ex2) {
+    } catch (std::exception& ex2) {
       // Well... this is awkward
     }
     
     try {
       // Attempt to reset the chip
       m_chips[curr_chip]->reset();
-    } catch (exception ex2) {
+    } catch (std::exception& ex2) {
       // Well... this is awkward
     }
     
     try {
       m_linkmasta->close();
-    } catch (exception ex2) {
+    } catch (std::exception& ex2) {
       // Well... this is awkward
     }
     
@@ -1133,20 +1129,20 @@ void ngp_cartridge::restore_cartridge_save_data(std::istream& fin, int slot, tas
     try {
       // Spinlock while the chip finishes erasing (if it was erasing)
       while (m_chips[curr_chip]->is_erasing());
-    } catch (exception ex2) {
+    } catch (std::exception& ex2) {
       // Well... this is awkward
     }
     
     try {
       // Attempt to reset the chip
       m_chips[curr_chip]->reset();
-    } catch (exception ex2) {
+    } catch (std::exception& ex2) {
       // Well... this is awkward
     }
     
     try {
       m_linkmasta->close();
-    } catch (exception ex2) {
+    } catch (std::exception& ex2) {
       // Well... this is awkward
     }
     
@@ -1389,20 +1385,20 @@ bool ngp_cartridge::compare_cartridge_save_data(std::istream& fin, int slot, tas
     try {
       // Spinlock while the chip finishes erasing (if it was erasing)
       while (m_chips[curr_chip]->is_erasing());
-    } catch (exception ex2) {
+    } catch (std::exception& ex2) {
       // Well... this is awkward
     }
     
     try {
       // Attempt to reset the chip
       m_chips[curr_chip]->reset();
-    } catch (exception ex2) {
+    } catch (std::exception& ex2) {
       // Well... this is awkward
     }
     
     try {
       m_linkmasta->close();
-    } catch (exception ex2) {
+    } catch (std::exception& ex2) {
       // Well... this is awkward
     }
     
@@ -1486,7 +1482,7 @@ std::string ngp_cartridge::fetch_game_name(int slot)
     (void) ex;
     try {
       m_linkmasta->close();
-    } catch(std::exception ex2) {
+    } catch(std::exception& ex2) {
       // Well... this is awkward
     }
     
@@ -1683,14 +1679,15 @@ void ngp_cartridge::build_block_descriptor(unsigned int chip_i, unsigned int blo
   // Note: Fall-throughs are intended
   case 1:    // Last block on chip
     block->base_address += DEFAULT_BLOCK_SIZE / 8;
-    
+      break;
   case 2:    // Second-last block on chip
     block->base_address += DEFAULT_BLOCK_SIZE / 8;
-    
+      break;
   case 3:    // Third-last block on chip
     block->base_address += DEFAULT_BLOCK_SIZE / 2;
-    
+      break;
   case 4:    // Fourth-last block on chip
+      break;
   default:   // Some other block
     block->base_address += (block_i > num_basic_blocks ? num_basic_blocks : block_i) * DEFAULT_BLOCK_SIZE;
     break;
