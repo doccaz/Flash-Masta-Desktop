@@ -574,7 +574,7 @@ void ws_cartridge::restore_cartridge_game_data(std::istream& fin, int slot, task
     try {
       // Spinlock while the chip finishes erasing (if it was erasing)
       while (m_rom_chip->is_erasing());
-    } catch (exception ex2) {
+    } catch (std::exception& ex2) {
       (void) ex2;
       // Well... this is awkward
     }
@@ -582,14 +582,14 @@ void ws_cartridge::restore_cartridge_game_data(std::istream& fin, int slot, task
     try {
       // Attempt to reset the chip
       m_rom_chip->reset();
-    } catch (exception ex2) {
+    } catch (std::exception& ex2) {
       (void) ex2;
       // Well... this is awkward
     }
     
     try {
       m_linkmasta->close();
-    } catch (exception ex2) {
+    } catch (std::exception& ex2) {
       (void) ex2;
       // Well... this is awkward
     }

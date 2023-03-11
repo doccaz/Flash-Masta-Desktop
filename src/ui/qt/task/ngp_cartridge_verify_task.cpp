@@ -57,7 +57,7 @@ void NgpCartridgeVerifyTask::run_task()
   // Get source file from user
   QString filename = QFileDialog::getOpenFileName(
     (QWidget*) this->parent(), tr("Open File"), QString(),
-    tr("Neo Geo Pocket (*.ngp);;All files (*)"));
+    tr("Neo Geo Pocket (*.ngp *.ngc);;All files (*)"));
   if (filename.isNull())
   {
     // Quietly fail
