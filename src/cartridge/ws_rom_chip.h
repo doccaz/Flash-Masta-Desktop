@@ -12,6 +12,8 @@
 #ifndef __WS_ROM_CHIP_H__
 #define __WS_ROM_CHIP_H__
 
+#include <stdexcept>
+
 class linkmasta_device;
 class task_controller;
 

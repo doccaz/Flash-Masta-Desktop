@@ -12,6 +12,8 @@
 #ifndef __NGP_CHIP_H__
 #define __NGP_CHIP_H__
 
+#include <stdexcept>
+
 class linkmasta_device;
 class task_controller;
 

@@ -16,7 +16,7 @@
 
 #include "linkmasta_device.h"
 #include "usb/usbfwd.h"
-
+#include <stdexcept>
 
 
 /*! \class ws_linkmasta_device

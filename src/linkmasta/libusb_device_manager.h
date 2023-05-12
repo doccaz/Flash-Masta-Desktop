@@ -18,6 +18,7 @@
 
 #include <map>
 #include <string>
+#include <stdexcept>
 
 struct libusb_context;
 struct libusb_device;
