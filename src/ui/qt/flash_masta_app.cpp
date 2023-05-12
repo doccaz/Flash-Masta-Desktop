@@ -5,6 +5,7 @@
 #include "game/ws_game_catalog.h"
 #include "game/ngp_game_catalog.h"
 #include "main_window.h"
+#include <iostream>
 
 FlashMastaApp* FlashMastaApp::instance = nullptr;
 const int FlashMastaApp::NO_DEVICE = -1;
@@ -25,8 +26,21 @@ FlashMastaApp::FlashMastaApp(int argc, char **argv, int flags)
   }
   
   m_device_manager = new libusb_device_manager();
+
+try
+{
+  m_ws_game_catalog = new ws_game_catalog((QString("/usr/share/FlashMasta/wsgames.db")).toStdString().c_str());
+  m_ngp_game_catalog = new ngp_game_catalog((QString("/usr/share/FlashMasta/ngpgames.db")).toStdString().c_str());
+}
+catch(const std::runtime_error& e)
+{
+  std::cerr << e.what() << '\n';
+  std::cerr << "trying alternate location for games database..." << '\n';
   m_ws_game_catalog = new ws_game_catalog((QCoreApplication::applicationDirPath() + QString("/wsgames.db")).toStdString().c_str());
   m_ngp_game_catalog = new ngp_game_catalog((QCoreApplication::applicationDirPath() + QString("/ngpgames.db")).toStdString().c_str());
+  std::cout << "games database loaded." << '\n';
+}
+
   m_main_window = new MainWindow();
   
   qRegisterMetaType<std::string>("std::string");
