@@ -1,5 +1,12 @@
 # <a name="top"></a>FlashMasta
 
+## About this fork
+
+This fork includes QT6 build fixes, and all the PRs that were never accepted from the original repo.
+It'll also feature RPM and Flatpak builds "real soon now™".
+
+[![build result](https://build.opensuse.org/projects/home:emendonca/packages/FlashMasta/badge.svg?type=default)](https://build.opensuse.org/package/show/home:emendonca/FlashMasta)
+
 ## Contents
 
 1. [Project Directory Structure](#pds)
